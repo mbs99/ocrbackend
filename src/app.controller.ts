@@ -3,6 +3,7 @@ import {
   Get,
   Header,
   Post,
+  Render,
   StreamableFile,
   UploadedFile,
   UseInterceptors,
@@ -15,8 +16,20 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
+  @Render('index')
+  index() {
+    return { message: 'Hello world!' };
+  }
+
+  @Get('health')
   health(): string {
     return this.appService.getHealth();
+  }
+
+  @Get('upload')
+  @Render('upload')
+  upload() {
+    return {};
   }
 
   @Post('upload')
