@@ -27,7 +27,7 @@ export class ImagesToPdfService {
         let height = doc.internal.pageSize.getHeight();
 
         const rotated = await new Promise<Buffer>((resolve, reject) => {
-          gm(file.buffer)
+          gm(file.path)
             .autoOrient()
             .toBuffer((err, buffer) => {
               if (err) {

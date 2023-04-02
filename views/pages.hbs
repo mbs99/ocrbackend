@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>Pages</title>
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css'
+      integrity='sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls'
+      crossorigin='anonymous'
+    />
+  </head>
+  <body>
+    <form
+      class='pure-form pure-form-aligned'
+      action='/pages'
+      method='POST'
+      enctype='multipart/form-data'
+    >
+      {{#each pages}}
+        <fieldset>
+          <div class='pure-control-group'>
+            <label for='name'>Filename</label>
+            <input
+              type='text'
+              id='file{{this.pos}}'
+              name='{{this.name}}'
+              value='{{this.name}}'
+              readonly
+            />
+          </div>
+        </fieldset>
+      {{/each}}
+    </form>
+  </body>
+</html>
